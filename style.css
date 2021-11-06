@@ -1,0 +1,38 @@
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+}
+.banner {
+    background: url("./gambar/Logo-Nahdlatul-Ulama-NU-Format-PNG-1024x668.png")no-repeat center center ;
+    background-size: cover;
+    padding-top: 15%;
+    padding-bottom: 50%;
+    color:#ffffff ;
+    border-radius:1%;
+    font-family: 'Luca Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.lingkaran {
+    display: inline-block;
+    border-radius: 50%;
+    width: 150px;
+    margin: auto;
+    height: 150px;
+    color: #ffffff;
+    background-color: #dc3545;
+}
+.lingkaran i {
+    position: relative;
+    top: 30px;
+}
+.staff img{
+    border: 10px solid #cccccc;
+}
+
+.tim {
+    background-color: #5e5e5e;
+    color: #ffffff;
+    border-radius: 1%;
+}
+.kontak {
+    text-align: left;
+}
