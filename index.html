@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-md-4 text-center ">
                       <img src="./gambar/mbk ila.jpg" class="rounded-circle mb-3" alt="..." width="310" height="310">
-                      <h4>Fadilatul Khusna Amalla</h4>
+                      <h4>Fadilatul Khusna A.</h4>
                       <p>ketua Ippnu</p>
                     </div>
 
@@ -117,7 +117,7 @@
                   <div class="row pt-4 gx-4 gy-4 staff">
                     <div class="col-md-4 text-center ">
                       <img src="./gambar/iksa.jpeg" class="rounded-circle mb-3" alt="..." width="310">
-                      <h4>Muhamad rakhmad ikhsa</h4>
+                      <h4>M. rakhmad ikhsa</h4>
                       <p>Humas</p>
                     </div>
                     <div class="col-md-4 text-center ">
@@ -154,20 +154,52 @@
             Kontak Kami
           </h2>
           <p>Berikan Informasi dan saran anda Mengenai Website Kami</p>
-          <div class="row pb-3 kontak">
-            <div class="mb-3">
-              <label for="exampleFormControlInput1" class="form-label">Email address</label>
-              <input type="email" class="form-control " id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Textarea</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="d-grid gap-2 btn-lg-6">
-              <button class="btn btn-danger" type="button">Send</button>
-            </div>
+          <div class="alert alert-warning alert-dismissible fade show my-alert d-none " role="alert">
+            <strong>Terimakasih!!!</strong> Saran anda sudah kami terima
+            <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
+          <form name="ipnu-ippnu-website">
+            <div class="row pb-3 kontak">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control " id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="pesan"></textarea>
+              </div>
+              <div class="d-grid gap-2 btn-lg-6">
+                <button class="btn btn-danger btn-kirim" type="submit" >Send</button>
+                <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                  Loading...
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyV8r_roqJRaeuqpmFMIHYF4jo37G0COk1pg6H0rE5M4u_L8npxvnL_qXLyfoDHH01ZWw/exec'
+        const form = document.forms['ipnu-ippnu-website']
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>{
+              btnLoading.classList.toggle('d-none');
+              btnKirim.classList.toggle('d-none');
+              myAlert.classList.toggle('d-none');
+              form.reset();
+              console.log('Success!', response);
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 </html>
