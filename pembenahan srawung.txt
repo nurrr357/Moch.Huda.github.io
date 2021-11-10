@@ -1,0 +1,7 @@
+WEB IPPNU FIX
+1.navbar dropdown
+2.web formal ipnu menuju ranting
+3.pengolahan kata (jurnalistik)
+4.pembagian tim organisasi (dropdown navbar)
+5.memperbaiki desainer
+6.urutan induk sampe kebawah
